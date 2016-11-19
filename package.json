@@ -1,0 +1,28 @@
+{
+  "name": "wsocket.io",
+  "version": "0.1.0",
+  "description": "ES6 ws wrapper for client and server for ease of use.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielkov/wsocket.io.git"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "javascript",
+    "client",
+    "server",
+    "ws",
+    "websocket"
+  ],
+  "author": "Daniel Kovacs <kovacsemod@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielkov/wsocket.io/issues"
+  },
+  "homepage": "https://github.com/danielkov/wsocket.io#readme"
+}
