@@ -36,7 +36,7 @@ let client = new Client();
 
 client.on('welcome', (data) => {
   console.log(data);
-  ws.send('reply', {message: 'hello back'});
+  client.send('reply', {message: 'hello back'});
 })
 
 client.off();
