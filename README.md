@@ -96,3 +96,81 @@ Sends a message to all sockets but the current one, using the server's `sendExcl
 
 ### `.off()`
 Removes socket from the handled sockets. Triggered automatically when socket closes on the client side.
+
+
+## Changes in Version 1.0
+
+### Event middleware
+
+The middleware-based approach is quite popular among JavaScript developers, especially on the server-side, which is why I've decided to add support for multiple handle functions for the same WebSocket event.
+
+Multiple handlers on the same event can work in various ways:
+
+Via multiple functions:
+
+```js
+ws.on('example',
+data => {
+  console.log(data);
+},
+data => {
+  storeLogs(data);
+},
+data => {
+  ws.send('response', { message: `Your message: ${data.message}, has been stored.`});
+})
+```
+
+By passing in an array of functions:
+
+```js
+ws.on('example',
+[
+  data => {
+    console.log(data);
+  },
+  data => {
+    storeLogs(data);
+  },
+  data => {
+    ws.send('response', { message: `Your message: ${data.message}, has been stored.`});
+  }
+])
+```
+
+Aside from the previous 2 best practices, it won't break if you do something like this:
+
+```js
+ws.on('example', [
+  data => {
+    console.log('Hi there!');
+  },
+  data => {
+    console.log('This will also work.');
+  }
+],
+data => {
+  console.log(`Someone sent me: ${data.message}`);
+},
+data => {
+  ws.send('reply', { message: 'This is cool.' })
+}
+)
+```
+
+### Support for `on('close')`
+
+This had been an oversight by me, as it required some tweaking, but the method on server-side now works and is called before the socket finally closes. The parameter of the callback will receive an object `{ id: clientId }` so that identification of the disconnected user is easy.
+
+### Subscribe to multiple WebSocket events with same function
+
+This change also supports the use of middleware. You can now subscribe to multiple events, using this API. You can separate the events you want to assign the function to, separated with spaces.
+
+Example:
+
+```js
+ws.on('message reply login logout', data => {
+  console.log(`Oh look, we got some data: ${data.message}!`);
+})
+/*send('message') will trigger this once, and so will send('reply') and so on...*/
+```
