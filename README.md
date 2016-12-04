@@ -2,9 +2,9 @@
 
 Simple ws wrapper written with ES6 syntax for ease of use.
 
-### Browser support
+### Notice
 
-Client code needs to be transpiled with something like [Babel](https://babeljs.io/) to work in all browsers. Currently only browsers supporting WebSocket API are supported (no fallback to AJAX).
+This is the repo for the NPM module that pulls in both [https://github.com/danielkov/wsocket.io-client](wsocket.io-client) and [https://github.com/danielkov/wsocket.io-server](wsocket.io-server) modules. If you notice any errors, mistakes or just want to share your thoughts and contribute to this project, feel free to send pull requests on the GitHub pages of the respective projects.
 
 ### Simple use
 
