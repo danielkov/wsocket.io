@@ -1,6 +1,6 @@
 {
   "name": "wsocket.io",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "ES6 ws wrapper for client and server for ease of use.",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/danielkov/wsocket.io#readme",
   "dependencies": {
-    "ws": "^1.1.1"
+    "wsocket.io-client" : "^1.0.1",
+    "wsocket.io-server" : "^1.0.2"
   }
 }
