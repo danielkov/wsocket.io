@@ -1,2 +1,2 @@
-module.exports.server = require('wsocket.io-server');
-module.exports.client = require('wsocket.io-client');
+module.exports.Server = require('wsocket.io-server');
+module.exports.Client = require('wsocket.io-client');
